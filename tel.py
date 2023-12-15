@@ -214,12 +214,14 @@ events_list = events
 # Loop through each event
 for event in events_list:
     # Get sessions for the current event
-    sessions = sessions_available(YEAR, event)
+    # sessions = sessions_available(YEAR, event)
+    sessions =['Race']
     
 
     # Loop through each session and create a folder within the event folder
     for session in sessions:
-        drivers = session_drivers_list(YEAR, event, session)
+        # drivers = session_drivers_list(YEAR, event, session)
+        drivers = ['HAM']
         
 
         for driver in drivers:
@@ -228,7 +230,8 @@ for event in events_list:
             laps = f1session.laps
             driver_laps = laps.pick_driver(driver)
             driver_laps["LapNumber"] = driver_laps["LapNumber"].astype(int)
-            driver_lap_numbers = round(driver_laps["LapNumber"]).tolist()
+            # driver_lap_numbers = round(driver_laps["LapNumber"]).tolist()
+            driver_lap_numbers = [1,2]
             
 
             for lap_number in driver_lap_numbers:
