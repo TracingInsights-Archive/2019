@@ -23,8 +23,8 @@ events = [#'Australian Grand Prix',
     # 'Canadian Grand Prix', 'French Grand Prix', 'Austrian Grand Prix', 
     # 'British Grand Prix', 'German Grand Prix', 'Hungarian Grand Prix', 
     # 'Belgian Grand Prix', 'Italian Grand Prix', 'Singapore Grand Prix', 
-           'Russian Grand Prix', 'Japanese Grand Prix', 'Mexican Grand Prix', 
-    # 'United States Grand Prix', 'Brazilian Grand Prix', 'Abu Dhabi Grand Prix'
+           # 'Russian Grand Prix', 'Japanese Grand Prix', 'Mexican Grand Prix', 
+    'United States Grand Prix', 'Brazilian Grand Prix', 'Abu Dhabi Grand Prix'
           ]
          
 
