@@ -190,7 +190,7 @@ def telemetry_data(year, event, session: str, driver, lap_number):
     data_key = f"{driver} - Lap {int(lap_number)} - {year} - {session} - [{laptime}]"
 
     acc_tel["DRS"] = acc_tel["DRS"].apply(lambda x: 1 if x in [10, 12, 14] else 0)
-    acc_tel["Brake"] = acc_tel["Brake"].apply(lambda x: 1 if x == "True" else 0)
+    acc_tel["Brake"] = acc_tel["Brake"].apply(lambda x: 1 if x == True else 0)
 
     telemetry_data = {
         "tel": {
@@ -198,8 +198,8 @@ def telemetry_data(year, event, session: str, driver, lap_number):
             "rpm": acc_tel["RPM"].tolist(),
             "speed": acc_tel["Speed"].tolist(),
             "gear": acc_tel["nGear"].tolist(),
-            "throttle": acc_tel["Brake"].tolist(),
-            "brake": acc_tel["Distance"].tolist(),
+            "throttle": acc_tel["Throttle"].tolist(),
+            "brake": acc_tel["Brake"].tolist(),
             "drs": acc_tel["DRS"].tolist(),
             "distance": acc_tel["Distance"].tolist(),
             "rel_distance": acc_tel["RelativeDistance"].tolist(),
