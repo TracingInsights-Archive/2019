@@ -187,7 +187,8 @@ def telemetry_data(year, event, session: str, driver, lap_number):
     acc_tel["Time"] = acc_tel["Time"].dt.total_seconds()
 
     laptime = selected_lap.LapTime.values[0]
-    data_key = f"{driver} - Lap {int(lap_number)} - {year} - {session} - [{laptime}]"
+    # data_key = f"{driver} - Lap {int(lap_number)} - {year} - {session} - [{laptime}]"
+    data_key = f"{year}-{event}-{session}-{driver}-{lap_number}"
 
     acc_tel["DRS"] = acc_tel["DRS"].apply(lambda x: 1 if x in [10, 12, 14] else 0)
     acc_tel["Brake"] = acc_tel["Brake"].apply(lambda x: 1 if x == True else 0)
