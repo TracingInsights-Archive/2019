@@ -80,7 +80,12 @@ events_list = events
 
 # Loop through each event
 for event in events_list:
-    sessions = sessions_available(YEAR, event)
+    # Get sessions for the current event
+    if event == "Japanese Grand Prix":
+
+        sessions = ['Practice 1', 'Practice 2', 'Qualifying', 'Race']
+    else:
+        sessions = sessions_available(YEAR, event)
     
 
     for session in sessions:
