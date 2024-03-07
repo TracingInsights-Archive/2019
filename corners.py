@@ -32,7 +32,7 @@ def sessions_available(year: int, event: str | int) -> any:
     return sessions
 
 for event in events:
-    sessions = sessions_available(YEAR, event)
+    sessions = utils.get_sessions(YEAR, event)
     for session in sessions:
         f1session = fastf1.get_session(YEAR, event, session)
         f1session.load()
