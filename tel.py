@@ -20,12 +20,12 @@ def events_available(year: int) -> any:
 events = [
     'Australian Grand Prix', 
            'Bahrain Grand Prix', 'Chinese Grand Prix', 
-    # 'Azerbaijan Grand Prix', 'Spanish Grand Prix', 'Monaco Grand Prix',
-    # 'Canadian Grand Prix', 'French Grand Prix', 'Austrian Grand Prix', 
-    # 'British Grand Prix', 'German Grand Prix', 'Hungarian Grand Prix', 
-    # 'Belgian Grand Prix', 'Italian Grand Prix', 'Singapore Grand Prix', 
-           # 'Russian Grand Prix', 'Japanese Grand Prix', 'Mexican Grand Prix', 
-    # 'United States Grand Prix', 'Brazilian Grand Prix', 'Abu Dhabi Grand Prix'
+    'Azerbaijan Grand Prix', 'Spanish Grand Prix', 'Monaco Grand Prix',
+    'Canadian Grand Prix', 'French Grand Prix', 'Austrian Grand Prix', 
+    'British Grand Prix', 'German Grand Prix', 'Hungarian Grand Prix', 
+    'Belgian Grand Prix', 'Italian Grand Prix', 'Singapore Grand Prix', 
+           'Russian Grand Prix', 'Japanese Grand Prix', 'Mexican Grand Prix', 
+    'United States Grand Prix', 'Brazilian Grand Prix', 'Abu Dhabi Grand Prix'
           ]
          
 
@@ -220,50 +220,82 @@ def telemetry_data(year, event, session: str, driver, lap_number):
 # Your list of events
 events_list = events
 
+
 # Loop through each event
 for event in events_list:
-    # Get sessions for the current event
-    if event == "Japanese Grand Prix":
 
-        sessions = ['Practice 1', 'Practice 2', 'Qualifying', 'Race']
-    else:
-        sessions = sessions_available(YEAR, event)
-    
-    
+    # # Get sessions for the current event
+    # if event == "Qatar Grand Prix":
+    #     sessions = ['Practice 1', 'Qualifying', 'Sprint Shootout', 'Sprint', 'Race']
+    # else:
+    sessions = ['Practice 1', 'Qualifying', 'Practice 2', 'Practice 3', 'Race']
 
     # Loop through each session and create a folder within the event folder
     for session in sessions:
         drivers = session_drivers_list(YEAR, event, session)
-        
-        
 
         for driver in drivers:
-            f1session = fastf1.get_session(YEAR, event, session)
-            f1session.load(telemetry=False, weather=False, messages=False)
-            laps = f1session.laps
-            driver_laps = laps.pick_driver(driver)
-            driver_laps["LapNumber"] = driver_laps["LapNumber"].astype(int)
-            driver_lap_numbers = round(driver_laps["LapNumber"]).tolist()
+            # Create a folder for the driver if it doesn't exist
+            driver_folder = f"{event}/{session}/{driver}"
+            if not os.path.exists(driver_folder):
+                os.makedirs(driver_folder)
+
+            laptimes = laps_data(YEAR, event, session, driver)
+
+            # Specify the file path where you want to save the JSON data
+            file_path = f"{driver_folder}/laptimes.json"
+
+            # Save the dictionary to a JSON file
+            with open(file_path, "w") as json_file:
+                json.dump(laptimes, json_file)
+
+            # print(f"Dictionary saved to {file_path}")
+
+
+# Loop through each event
+# for event in events_list:
+#     # Get sessions for the current event
+#     if event == "Japanese Grand Prix":
+
+#         sessions = ['Practice 1', 'Practice 2', 'Qualifying', 'Race']
+#     else:
+#         sessions = sessions_available(YEAR, event)
+    
+    
+
+#     # Loop through each session and create a folder within the event folder
+#     for session in sessions:
+#         drivers = session_drivers_list(YEAR, event, session)
+        
+        
+
+#         for driver in drivers:
+#             f1session = fastf1.get_session(YEAR, event, session)
+#             f1session.load(telemetry=False, weather=False, messages=False)
+#             laps = f1session.laps
+#             driver_laps = laps.pick_driver(driver)
+#             driver_laps["LapNumber"] = driver_laps["LapNumber"].astype(int)
+#             driver_lap_numbers = round(driver_laps["LapNumber"]).tolist()
             
             
 
-            for lap_number in driver_lap_numbers:
-                driver_folder = f"{event}/{session}/{driver}"
-                if not os.path.exists(driver_folder):
-                    os.makedirs(driver_folder)
+#             for lap_number in driver_lap_numbers:
+#                 driver_folder = f"{event}/{session}/{driver}"
+#                 if not os.path.exists(driver_folder):
+#                     os.makedirs(driver_folder)
 
-                try:
+#                 try:
 
-                    telemetry = telemetry_data(YEAR, event, session, driver, lap_number)
+#                     telemetry = telemetry_data(YEAR, event, session, driver, lap_number)
 
 
-                    # print(telemetry)
+#                     # print(telemetry)
 
-                    # Specify the file path where you want to save the JSON data
-                    file_path = f"{driver_folder}/{lap_number}_tel.json"
+#                     # Specify the file path where you want to save the JSON data
+#                     file_path = f"{driver_folder}/{lap_number}_tel.json"
 
-                    # Save the dictionary to a JSON file
-                    with open(file_path, "w") as json_file:
-                        json.dump(telemetry, json_file)
-                except:
-                    continue
+#                     # Save the dictionary to a JSON file
+#                     with open(file_path, "w") as json_file:
+#                         json.dump(telemetry, json_file)
+#                 except:
+#                     continue
