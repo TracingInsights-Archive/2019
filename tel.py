@@ -27,9 +27,9 @@ events = [
     #        'Russian Grand Prix', 
            
            
-           'Mexican Grand Prix', 
-    'United States Grand Prix', 'Brazilian Grand Prix', 'Abu Dhabi Grand Prix',
-    # 'Japanese Grand Prix', 
+    #        'Mexican Grand Prix', 
+    # 'United States Grand Prix', 'Brazilian Grand Prix', 'Abu Dhabi Grand Prix',
+    'Japanese Grand Prix', 
           ]
          
 
@@ -232,7 +232,7 @@ for event in events_list:
     # if event == "Qatar Grand Prix":
     #     sessions = ['Practice 1', 'Qualifying', 'Sprint Shootout', 'Sprint', 'Race']
     # else:
-    sessions = ['Practice 1', 'Qualifying', 'Practice 2', 'Practice 3', 'Race']
+    sessions = ['Practice 1', 'Qualifying', 'Practice 2',  'Race']
 
     # Loop through each session and create a folder within the event folder
     for session in sessions:
