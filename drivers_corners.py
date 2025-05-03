@@ -45,18 +45,17 @@ class TelemetryExtractor:
         self.year = year
         self.events = events or [
            
-            'Chinese Grand Prix', 
-            'French Grand Prix', 
+        
             'German Grand Prix',
             'Hungarian Grand Prix',
-            'Italian Grand Prix',
-            'Japanese Grand Prix', 
-            'Mexican Grand Prix', 
-            'Monaco Grand Prix',
-            'Russian Grand Prix', 
-            'Singapore Grand Prix', 
-            'Spanish Grand Prix', 
-            'United States Grand Prix', 
+            # 'Italian Grand Prix',
+            # 'Japanese Grand Prix', 
+            # 'Mexican Grand Prix', 
+            # 'Monaco Grand Prix',
+            # 'Russian Grand Prix', 
+            # 'Singapore Grand Prix', 
+            # 'Spanish Grand Prix', 
+            # 'United States Grand Prix', 
         ]
         self.sessions = sessions or [
             "Practice 1",
