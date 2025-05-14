@@ -48,12 +48,12 @@ class TelemetryExtractor:
         
             # 'German Grand Prix',
             # 'Hungarian Grand Prix',
-            'Italian Grand Prix',
-            'Japanese Grand Prix', 
+            # 'Italian Grand Prix',
+            # 'Japanese Grand Prix', 
             # 'Mexican Grand Prix', 
             # 'Monaco Grand Prix',
-            # 'Russian Grand Prix', 
-            # 'Singapore Grand Prix', 
+            'Russian Grand Prix', 
+            'Singapore Grand Prix', 
             # 'Spanish Grand Prix', 
             # 'United States Grand Prix', 
         ]
