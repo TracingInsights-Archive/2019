@@ -52,10 +52,10 @@ class TelemetryExtractor:
             # 'Japanese Grand Prix', 
             # 'Mexican Grand Prix', 
             # 'Monaco Grand Prix',
-            'Russian Grand Prix', 
-            'Singapore Grand Prix', 
-            # 'Spanish Grand Prix', 
-            # 'United States Grand Prix', 
+            # 'Russian Grand Prix', 
+            # 'Singapore Grand Prix', 
+            'Spanish Grand Prix', 
+            'United States Grand Prix', 
         ]
         self.sessions = sessions or [
             "Practice 1",
